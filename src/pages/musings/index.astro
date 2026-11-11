@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MusingList from "../../components/MusingList.astro";
+import { getPublishedMusings } from "../../lib/musings";
+
+const musings = await getPublishedMusings();
+---
+
+<BaseLayout
+  title="musings"
+  description="Essays, musings, ideas, and everything in between."
+>
+  <header class="page-header">
+    <p class="eyebrow">musings / field log</p>
+    <h1>musings</h1>
+    <p class="page-lede">
+      Essays, musings, ideas, and everything in between.
+    </p>
+    <p class="page-actions">
+      <a href="/rss.xml">RSS feed</a>
+      <span>{musings.length} musings</span>
+    </p>
+  </header>
+
+  <div class="listing">
+    <MusingList musings={musings} />
+  </div>
+</BaseLayout>

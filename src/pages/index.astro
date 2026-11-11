@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Name from "../components/Name.astro";
+import SignalPlot from "../components/SignalPlot.astro";
+import MusingList from "../components/MusingList.astro";
+import { getPublishedMusings } from "../lib/musings";
+import { featuredExperience } from "../data/resume";
+import { profile } from "../data/profile";
+
+const musings = (await getPublishedMusings()).slice(0, 3);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="hero-left">
+      <p class="eyebrow">{profile.eyebrow}</p>
+      <Name />
+    </div>
+
+    <div class="hero-right">
+      <SignalPlot />
+      <p class="lede">{profile.description}</p>
+      <p class="hero-actions">
+        <a href="/about/">about</a>
+        <a href={profile.links.linkedin} target="_blank" rel="me noopener">linkedin</a>
+        <a href={profile.links.github} target="_blank" rel="me noopener">github</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener">resume</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="musings">
+    <h2 class="section-label label-musings">musings</h2>
+    <div class="section-content">
+      <div class="section-intro">
+        <p>Essays, musings, ideas, and everything in between.</p>
+        <a href="/musings/">all musings</a>
+      </div>
+      <MusingList musings={musings} />
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <h2 class="section-label label-work">work</h2>
+    <div class="section-content">
+      <div class="section-intro">
+        <p>An abbreviation of my most recent work.</p>
+        <a href="/resume.pdf" target="_blank" rel="noopener">full resume</a>
+      </div>
+      <div class="work-list">
+        {
+          featuredExperience.map((role) => (
+            <article class="work-row">
+              <time>{role.period}</time>
+              <div>
+                <h3>{role.company}</h3>
+                <p class="role">{role.role}</p>
+              </div>
+              <p class="note">{role.note}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="resume">
+    <h2 class="section-label label-resume">resume</h2>
+    <div class="section-content">
+      <div class="resume-card">
+        <p>A PDF version of my resume.</p>
+        <a class="resume-link" href="/resume.pdf" download>Download resume (PDF)</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

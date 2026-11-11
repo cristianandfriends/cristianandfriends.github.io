@@ -1,0 +1,38 @@
+---
+const year = new Date().getFullYear();
+---
+
+<figure class="signal" aria-hidden="true">
+  <svg viewBox="0 0 360 98">
+    <path class="grid" d="M0 18H360M0 46H360M0 74H360" stroke-dasharray="2 5" />
+    <path class="axis" d="M1 0V98" />
+    <path
+      class="trace-teal"
+      d="M0 68C22 68 24 42 48 42S76 72 98 70 128 28 152 34 184 68 208 62 242 38 266 44 300 68 324 58 348 40 360 44"
+      fill="none"
+      stroke-width="1.6"
+      pathLength="1"
+      vector-effect="non-scaling-stroke"
+    />
+    <path
+      class="trace-blue"
+      d="M0 54C18 54 24 74 46 74S74 46 96 52 124 80 148 74 178 40 202 48 232 74 258 65 292 38 318 46 344 66 360 60"
+      fill="none"
+      stroke-width="1.6"
+      pathLength="1"
+      vector-effect="non-scaling-stroke"
+    />
+    <path
+      class="trace-rust"
+      d="M0 80C20 80 26 60 50 62S78 84 102 78 132 52 158 56 190 82 214 76 246 50 270 56 306 78 330 70 352 58 360 62"
+      fill="none"
+      stroke-width="1.6"
+      pathLength="1"
+      vector-effect="non-scaling-stroke"
+    />
+    <circle class="end-teal" cx="360" cy="44" r="2.3" />
+    <circle class="end-blue" cx="360" cy="60" r="2.3" />
+    <circle class="end-rust" cx="360" cy="62" r="2.3" />
+  </svg>
+  <figcaption>signal / {year}</figcaption>
+</figure>

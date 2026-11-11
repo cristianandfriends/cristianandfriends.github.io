@@ -1,0 +1,21 @@
+cristian's scratchpad
+attribution
+
+Favicon
+Rick Sanchez icon by Icons8
+https://icons8.com/icon/57324/rick-sanchez
+Icons8 license: https://icons8.com/license
+
+The Icons8 license covers the icon asset. Rick Sanchez is a character from Rick and Morty. Character rights remain with their respective owners.
+
+Fonts
+Doto by the Doto Project Authors. SIL Open Font License 1.1.
+Local license: /fonts/OFL-Doto.txt
+https://openfontlicense.org
+
+Perfect DOS VGA 437 by Zeh Fernando. Free for personal use.
+Source: https://github.com/CP437/PerfectDOSVGA437
+
+Software
+Astro (MIT): https://astro.build
+KaTeX (MIT): https://katex.org

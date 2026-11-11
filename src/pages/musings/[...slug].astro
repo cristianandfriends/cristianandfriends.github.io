@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TagList from "../../components/TagList.astro";
+import {
+  formatDate,
+  formatDateLong,
+  getPublishedMusings,
+  readingTime,
+} from "../../lib/musings";
+
+export async function getStaticPaths() {
+  const musings = await getPublishedMusings();
+  return musings.map((musing) => ({
+    params: { slug: musing.id },
+    props: { musing },
+  }));
+}
+
+interface Props {
+  musing: CollectionEntry<"musings">;
+}
+
+const { musing } = Astro.props;
+const { Content } = await render(musing);
+---
+
+<BaseLayout
+  title={musing.data.title}
+  description={musing.data.description}
+  type="article"
+  publishedTime={musing.data.pubDate.toISOString()}
+>
+  <article class="note-page">
+    <header class="note-header">
+      <p class="eyebrow">musings / {formatDate(musing.data.pubDate)}</p>
+      <h1>{musing.data.title}</h1>
+      <p class="note-description">{musing.data.description}</p>
+      <div class="note-meta">
+        <time datetime={musing.data.pubDate.toISOString()}>
+          {formatDateLong(musing.data.pubDate)}
+        </time>
+        <span>{readingTime(musing.body)}</span>
+        <TagList tags={musing.data.tags} />
+      </div>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <footer class="note-footer">
+      <a href="/musings/">back to musings</a>
+      <a href="/rss.xml">RSS feed</a>
+    </footer>
+  </article>
+</BaseLayout>

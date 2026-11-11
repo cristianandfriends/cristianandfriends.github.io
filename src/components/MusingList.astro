@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatDate } from "../lib/musings";
+import TagList from "./TagList.astro";
+
+interface Props {
+  musings: CollectionEntry<"musings">[];
+}
+
+const { musings } = Astro.props;
+---
+
+<div class="note-list">
+  {
+    musings.map((musing) => (
+      <article class="note">
+        <time datetime={musing.data.pubDate.toISOString()}>
+          {formatDate(musing.data.pubDate)}
+        </time>
+        <div>
+          <h3>
+            <a href={`/musings/${musing.id}/`}>{musing.data.title}</a>
+          </h3>
+          <p class="dek">{musing.data.description}</p>
+          <TagList tags={musing.data.tags} />
+        </div>
+      </article>
+    ))
+  }
+</div>

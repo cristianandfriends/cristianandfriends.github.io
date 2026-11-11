@@ -1,0 +1,10 @@
+---
+import { profile } from "../data/profile";
+const [first, ...rest] = profile.siteTitle.split(" ");
+const last = rest.join(" ");
+---
+
+<h1 class="doto-name" aria-label={profile.siteTitleDisplay}>
+  <span>{first.toLowerCase()}</span>
+  <span>{last.toLowerCase()}</span>
+</h1>

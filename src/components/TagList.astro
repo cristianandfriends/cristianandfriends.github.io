@@ -1,0 +1,19 @@
+---
+import { tagClass } from "../lib/musings";
+
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+{
+  tags.length > 0 && (
+    <p class="tags">
+      {tags.map((tag) => (
+        <span class:list={["tag", tagClass(tag)]}>{tag.toLowerCase()}</span>
+      ))}
+    </p>
+  )
+}

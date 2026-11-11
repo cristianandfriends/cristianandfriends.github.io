@@ -1,0 +1,17 @@
+---
+import { profile } from "../data/profile";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-meta">
+    <p>© {year} {profile.name}</p>
+    <a class="attribution-link" href="/attributions/">attribution</a>
+  </div>
+  <nav aria-label="Elsewhere">
+    <a href={profile.links.github} rel="me">GitHub</a>
+    <a href={profile.links.linkedin} rel="me">LinkedIn</a>
+    <a href={`mailto:${profile.email}`}>Email</a>
+    <a href={profile.links.rss}>RSS</a>
+  </nav>
+</footer>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="not found"
+  description="That page is not in the log."
+  noindex
+>
+  <section class="not-found">
+    <p class="eyebrow">error / 404</p>
+    <p class="code">404</p>
+    <h1>That page is not in the log.</h1>
+    <p>
+      The address may have changed, or the musing may still be a draft. Try the
+      index or the musings archive.
+    </p>
+    <p class="page-actions">
+      <a href="/">Return home</a>
+      <a href="/musings/">browse musings</a>
+    </p>
+  </section>
+</BaseLayout>

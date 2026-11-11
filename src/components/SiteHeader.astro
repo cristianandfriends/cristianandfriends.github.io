@@ -1,0 +1,15 @@
+---
+const path = Astro.url.pathname;
+const aboutActive = path === "/about/" || path === "/about";
+const musingsActive = path === "/musings/" || path.startsWith("/musings/");
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Cristian Gonzales, home">home</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a class:list={{ active: aboutActive }} href="/about/">about</a>
+    <a href="/#work">work</a>
+    <a href="/resume.pdf" target="_blank" rel="noopener">resume</a>
+    <a class:list={{ active: musingsActive }} href="/musings/">musings</a>
+  </nav>
+</header>
