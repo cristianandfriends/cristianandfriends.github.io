@@ -867,6 +867,13 @@ img {
   line-height: 1.55;
 }
 
+.prose > svg[id^="mermaid"] {
+  display: block;
+  margin: 1.8em auto;
+  max-width: 100%;
+  height: auto;
+}
+
 .prose pre code {
   padding: 0;
   color: inherit;

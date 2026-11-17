@@ -14,6 +14,16 @@ Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interd
 
 Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor. Donec sed odio dui.
 
+```mermaid
+flowchart TD
+  A[Markdown note] --> B{rehype plugin}
+  B -->|fenced block| C[Shiki highlight]
+  B -->|mermaid block| D[Headless render]
+  D --> E[Inline SVG]
+  C --> F[Static HTML]
+  E --> F
+```
+
 - Lorem ipsum dolor sit amet
 - Consectetur adipiscing elit
 - Donec ullamcorper nulla non metus auctor fringilla

@@ -13,7 +13,9 @@
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^5.16.6",
     "katex": "^0.19.1",
+    "playwright": "^1.65.1",
     "rehype-katex": "^7.0.1",
+    "rehype-mermaid": "^3.0.0",
     "remark-math": "^6.0.0"
   },
   "devDependencies": {
